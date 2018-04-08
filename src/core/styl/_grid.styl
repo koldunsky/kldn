@@ -1,0 +1,33 @@
+// main s-grid settings file:
+
+@import '~s-grid/s-grid-settings'
+
+base-font-size = 16
+gutter = 2rem
+columns = 12
+
+breakpoints = {
+    sm: 0,
+    md: 600px,
+    lg: 900px,
+    xlg: 1200px,
+    xxlg: 1600px
+}
+
+@import '~s-grid/s-grid-functions'
+
+cell(i = 1, cols = columns, align = '', g = gutter)
+  if g is not 0
+    flex-basis: s('calc(100% * %s)', i / cols, rem-calc(g))
+  else
+    flex-basis: s('calc(100% * %s)', i / cols)
+  min-width 0 // FF adjustment for responsive images
+  if g is not 0
+    padding-left: rem-calc(g / 2)
+    padding-right: rem-calc(g / 2)
+  if align is 'top'
+    align-self flex-start
+  if align is 'bottom'
+    align-self flex-end
+  if align is 'center'
+    align-self center

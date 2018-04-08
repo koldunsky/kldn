@@ -1,0 +1,24 @@
+@require "../../core/styl/core.styl"
+
+$border-styles = rgba($accent, 1) 1px solid
+
+.kldn-ghost-grid
+  position: fixed
+  height: 100%
+  width: 100%
+  pointer-events: none
+  z-index: 500
+  grid()
+
+.kldn-ghost-grid__col
+  cell(2)
+  height: 100%
+
+.kldn-ghost-grid__line
+  height: 100%
+  border-left: $border-styles
+  &_right
+    border-right: $border-styles
+  &_right-only
+    border-right: $border-styles
+    border-left: none
