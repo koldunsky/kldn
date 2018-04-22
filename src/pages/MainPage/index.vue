@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import Background from '../Background/index'
+  import Background from '../../components/Background/index'
 
   export default {
     components: {

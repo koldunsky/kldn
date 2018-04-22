@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import MainPage from '../components/MainPage/index'
+import MainPage from '../pages/MainPage/index'
 import Photo from '../pages/Photo/index'
 import NotFound from '../pages/NotFound/index'
 
