@@ -2,12 +2,19 @@
   <div class="accel-layer"
        ref="root"
   >
+    <label>
+      <input type="checkbox" v-model="isRelative">
+      isRelative: {{isRelative}}
+    </label>
+
     <div class="accel-layer__container"
          :style="getStyles"
     >
 
       <div class="debug">
-        <pre ref="debug"></pre>
+        <pre ref="debug">
+          {{debugText}}
+        </pre>
 
         {{getStyles}}
       </div>
@@ -28,22 +35,18 @@
       return {
         x: null,
         y: null,
+        lastPosition: null,
         beta: null,
         gamma: null,
+        lastOrientation: null,
         k: .1,
+        isRelative: false,
+        debugText: '',
       }
     },
     mounted: function () {
-      window.addEventListener("deviceorientation", (e) => {
-        requestAnimationFrame(() => {
-          this.handleOrientation(e);
-        });
-      });
-      window.addEventListener('mousemove', (e) => {
-        requestAnimationFrame(() => {
-          this.handleOrientation(e);
-        });
-      });
+      window.addEventListener("deviceorientation", _throttle(this.handleOrientation, 100));
+      window.addEventListener('mousemove', _throttle(this.handleOrientation, 100));
     },
     methods: {
       handleOrientation: function (e) {
@@ -57,20 +60,51 @@
       },
 
       mouseConnector: function (e) {
-        this.x = Math.floor(e.clientX / Math.max(document.documentElement.clientWidth, window.innerWidth) * 100);
-        this.y = Math.floor(e.clientY / Math.max(document.documentElement.clientHeight, window.innerHeight) * 100);
-        this.$refs.debug.innerText = `${this.x} / ${this.y}`;
+        if(this.isRelative) {
+          if(this.lastPosition === null) {
+            this.lastPosition = e;
+          }
+
+          const lastX = this.lastPosition.clientX;
+          const lastY = this.lastPosition.clientY;
+          const w = Math.max(document.documentElement.clientWidth, window.innerWidth) * 100;
+          const h = Math.max(document.documentElement.clientHeight, window.innerHeight) * 100;
+          this.x = (e.clientX / w) - (lastX / w);
+          this.y = (e.clientY / h) - (lastY / h);
+        } else {
+          this.x = Math.floor(e.clientX / Math.max(document.documentElement.clientWidth, window.innerWidth) * 100);
+          this.y = Math.floor(e.clientY / Math.max(document.documentElement.clientHeight, window.innerHeight) * 100);
+        }
+        this.lastPosition = e;
+        this.debugText = `${this.x} / ${this.y}`;
       },
 
       orientationConnector: function (e) {
-        this.beta = e.beta;
-        this.gamma = e.gamma;
+        if(this.isRelative) {
+          if(this.lastOrientation === null) {
+            this.lastOrientation = e;
+          }
+          const localK = 3;
+          // beta
+          const {beta} = this.lastOrientation;
+          this.beta = (e.beta - beta) * localK;
 
-        this.$refs.debug.innerText = `
-  alpha ↺ 0|360   : ${Math.round(e.alpha) }
+          // gamma
+          const {gamma} = this.lastOrientation;
+          this.gamma = (e.gamma - gamma) * localK;
+        } else {
+          this.beta = e.beta;
+          this.gamma = e.gamma;
+        }
+
+        this.lastOrientation = e;
+
+        this.debugText = `
+  alpha ↺ 0|360   : ${Math.round(e.alpha)}
   beta ⇅  -180|180: ${Math.round(e.beta)}
   gamma ⇆ -90|90  : ${Math.round(e.gamma)}
-  translateY(${e.beta}deg)
+  ${this.beta}
+  ${this.gamma}
            `;
       }
     },
