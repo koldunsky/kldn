@@ -1,19 +1,25 @@
 <template>
-  <AccelLayer>
-    <div class="kldn-bg">
+  <div class="kldn-bg">
+    <AccelLayer class="kldn-bg__accel">
+
       <div
         class="kldn-bg__img"
         :style="{'background-image': 'url(' + bgImg+ ')'}"
       >
       </div>
+    </AccelLayer>
+    <AccelLayer
+      class="kldn-bg__overlay-accel"
+    >
       <div class="kldn-bg__overlay">
       </div>
-    </div>
-  </AccelLayer>
+    </AccelLayer>
+  </div>
 </template>
 
 <script>
   import AccelLayer from '../AccelLayer/index.vue';
+
   export default {
     components: {
       AccelLayer
@@ -21,7 +27,7 @@
     data() {
       return {
 //        bgImg: require('../../assets/bg.jpg')
-        bgImg: ''
+        bgImg: 'https://pp.userapi.com/c840720/v840720613/82276/8HLPTg27VSI.jpg'
       }
     }
   }

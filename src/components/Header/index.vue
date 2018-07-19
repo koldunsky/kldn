@@ -15,8 +15,8 @@
   export default {
     data() {
       return {
-//        name: 'koldunsky'
-        name: 'kld'
+        name: 'koldunsky'
+//        name: 'kld'
       }
     }
   }

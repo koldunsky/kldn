@@ -1,7 +1,8 @@
 @require '../../core/styl/core.styl'
 
 .kldn-bg
-  position: relative
+  absolute-center()
+  position: fixed
   height: 100%
   width: 100%
   background: rgba(0, 0, 0, .5)
@@ -14,12 +15,23 @@
   background-size: cover
 
 .kldn-bg__overlay
-  position: absolute
-  left: 0
-  right: 0
-  top: 0
-  bottom: 0
+  absolute-center()
   height: 100%
   width: 100%
   background: $bg
+
+.kldn-bg__accel
+  absolute-center()
+  width: 110% !important
+  height: 110% !important
+  transform: translate(-5%, 0)
+
+.kldn-bg__overlay-accel
+  position: absolute
+  top: -5%
+  left: -5%
+  height: 55% !important
+  width: 55% !important
   mix-blend-mode: multiply
+
+

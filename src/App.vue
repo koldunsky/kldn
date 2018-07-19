@@ -2,7 +2,9 @@
   <div id="app">
     <GhostGrid/>
     <Header/>
-    <router-view/>
+    <div class="kldn-page">
+      <router-view/>
+    </div>
   </div>
 </template>
 
