@@ -11,13 +11,13 @@
          :style="getStyles"
     >
 
-      <!--<div class="debug">-->
-      <!--<pre ref="debug">-->
-      <!--{{debugText}}-->
-      <!--</pre>-->
+      <div class="debug" v-if="debug">
+        <pre ref="debug">
+        {{debugText}}
+        </pre>
 
-        <!--{{getStyles}}-->
-      <!--</div>-->
+        {{getStyles}}
+      </div>
 
       <slot>
 
@@ -35,6 +35,14 @@
       k: {
         type: Number,
         default: .05,
+      },
+      absolute: {
+        type: Boolean,
+        default: true,
+      },
+      inverted: {
+        type: Boolean,
+        default: false,
       }
     },
     data() {
@@ -48,14 +56,20 @@
         isRelative: false,
         debugText: '',
         mouseMoveEvent: null,
+
+        debug: false,
     }
     },
     mounted: function () {
       window.addEventListener('deviceorientation', _throttle(this.orientationConnector, 100, {
         trailing: false,
       }));
-      this.$refs.root.addEventListener('mouseenter', this.onMouseEnter);
-      this.$refs.root.addEventListener('mouseleave', this.onMouseLeave);
+      if(this.absolute) {
+        window.addEventListener('mousemove', _throttle(this.onMouseMove, 100));
+      } else {
+        this.$refs.root.addEventListener('mouseenter', this.onMouseEnter);
+        this.$refs.root.addEventListener('mouseleave', this.onMouseLeave);
+      }
     },
     methods: {
       onMouseMove: function (e) {
@@ -63,11 +77,20 @@
 
         const rect = root.getBoundingClientRect();
 
-        const percentByX = (e.clientX - rect.x) / rect.width * 100;
-        const percentByY = (e.clientY - rect.y) / rect.height * 100;
+        let percentByX;
+        let percentByY;
 
-        this.x = Math.floor(percentByX);
-        this.y = Math.floor(percentByY);
+        if(this.absolute) {
+          percentByX = e.clientX / Math.max(document.documentElement.clientWidth, window.innerWidth) * 100;
+          percentByY = e.clientY / Math.max(document.documentElement.clientHeight, window.innerHeight) * 100;
+        } else {
+          percentByX = (e.clientX - rect.x) / rect.width * 100;
+          percentByY = (e.clientY - rect.y) / rect.height * 100;
+        }
+
+
+        this.x = this.inverted ? Math.ceil(100 - percentByX) : Math.floor(percentByX);
+        this.y = this.inverted ? Math.ceil(100 - percentByY) : Math.floor(percentByY);
         this.debugText = `${this.x} / ${this.y}`;
       },
 
@@ -133,7 +156,7 @@
           const y = this.gamma * -1;
           return `transform: rotateX(${x}deg) rotateY(${y}deg)`
         }
-        return `background-color: red; transform: rotateX(0deg) rotateY(0deg)`;
+        return this.debug ? '' : 'background-color: red; transform: rotateX(0deg) rotateY(0deg)';
       }
     }
   }

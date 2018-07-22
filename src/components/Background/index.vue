@@ -8,12 +8,8 @@
       >
       </div>
     </AccelLayer>
-    <AccelLayer
-      class="kldn-bg__overlay-accel"
-    >
       <div class="kldn-bg__overlay">
       </div>
-    </AccelLayer>
   </div>
 </template>
 

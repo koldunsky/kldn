@@ -1,11 +1,5 @@
 @require '../../core/styl/core.styl'
 
-.kldn-bg
-  absolute-center()
-  position: fixed
-  height: 100%
-  width: 100%
-  background: rgba(0, 0, 0, .5)
 
 .kldn-bg__img
   height: 100%
@@ -14,11 +8,12 @@
   -webkit-background-size: cover
   background-size: cover
 
-.kldn-bg__overlay
+.kldn-bg
   absolute-center()
+  position: fixed
   height: 100%
   width: 100%
-  background: $bg
+  background: rgba(0, 0, 0, .5)
 
 .kldn-bg__accel
   absolute-center()
@@ -26,12 +21,15 @@
   height: 110% !important
   transform: translate(-5%, 0)
 
-.kldn-bg__overlay-accel
+.kldn-bg__overlay
+  //height: 100%
+  //width: 100%
+  background: cyan
+  //.kldn-bg__overlay-accel
   position: absolute
   top: -5%
   left: -5%
   height: 55% !important
   width: 55% !important
   mix-blend-mode: multiply
-
 
