@@ -7,29 +7,42 @@
   background-position: center
   -webkit-background-size: cover
   background-size: cover
+  opacity: 0
+  @media $bp-desktop
+    opacity: 1
 
 .kldn-bg
   absolute-center()
   position: fixed
   height: 100%
   width: 100%
-  background: rgba(0, 0, 0, .5)
 
 .kldn-bg__accel
   absolute-center()
   width: 110% !important
   height: 110% !important
   transform: translate(-5%, 0)
+  background: #a8aeae
+  @media $bp-desktop
+    background: none
 
 .kldn-bg__overlay
-  //height: 100%
-  //width: 100%
-  background: cyan
-  //.kldn-bg__overlay-accel
-  position: absolute
-  top: -5%
-  left: -5%
-  height: 55% !important
-  width: 55% !important
+  height: 100%
+  width: 100%
+  background: blue
+
+.kldn-bg__overlay-accel
+  transform: translateZ(200px)
   mix-blend-mode: multiply
+  position: absolute
+  top: 1rem
+  left: 1rem
+  width: calc(75% - 2rem) !important
+  height: calc(75% - 2rem) !important
+
+  @media $bp-desktop
+    top: -5%
+    left: -5%
+    height: 55% !important
+    width: 55% !important
 

@@ -2,10 +2,6 @@
   <div class="accel-layer"
        ref="root"
   >
-    <!--<label style="position: fixed; bottom: 50%; right: 50%; z-index: 555; color: greenyellow">-->
-      <!--<input type="checkbox" v-model="isRelative">-->
-      <!--isRelative: {{isRelative}}-->
-    <!--</label>-->
 
     <div class="accel-layer__container"
          :style="getStyles"
@@ -36,7 +32,11 @@
         type: Number,
         default: .05,
       },
-      absolute: {
+      globalMovement: {
+        type: Boolean,
+        default: true,
+      },
+      gyroRelative: {
         type: Boolean,
         default: true,
       },
@@ -49,11 +49,12 @@
       return {
         x: null,
         y: null,
+        xMaxDeg: 12.5,
+        yMaxDeg: 12.5,
         lastPosition: null,
         beta: null,
         gamma: null,
         lastOrientation: null,
-        isRelative: false,
         debugText: '',
         mouseMoveEvent: null,
 
@@ -64,7 +65,7 @@
       window.addEventListener('deviceorientation', _throttle(this.orientationConnector, 100, {
         trailing: false,
       }));
-      if(this.absolute) {
+      if(this.globalMovement) {
         window.addEventListener('mousemove', _throttle(this.onMouseMove, 100));
       } else {
         this.$refs.root.addEventListener('mouseenter', this.onMouseEnter);
@@ -80,7 +81,7 @@
         let percentByX;
         let percentByY;
 
-        if(this.absolute) {
+        if(this.globalMovement) {
           percentByX = e.clientX / Math.max(document.documentElement.clientWidth, window.innerWidth) * 100;
           percentByY = e.clientY / Math.max(document.documentElement.clientHeight, window.innerHeight) * 100;
         } else {
@@ -112,11 +113,11 @@
       },
 
       orientationConnector: function (e) {
-        if (this.isRelative) {
+        if (this.gyroRelative) {
           if (this.lastOrientation === null) {
             this.lastOrientation = e;
           }
-          const localK = 3;
+          const localK = 1;
           // beta
           const {beta} = this.lastOrientation;
           this.beta = (e.beta - beta) * localK;
@@ -152,8 +153,13 @@
           const y = ((this.y - 50) / 50) * 100 * this.k * -1;
           return `transform: rotateX(${y}deg) rotateY(${x}deg)`
         } else if (this.beta !== null && this.gamma !== null) {
-          const x = this.beta;
-          const y = this.gamma * -1;
+          function normalizeAxisValue(val, limiter) {
+            const isPositive = val > 0;
+            const absVal = Math.min(limiter, Math.abs(val));
+            return isPositive ? absVal : absVal * -1;
+          }
+          const x = normalizeAxisValue(this.beta, this.xMaxDeg);
+          const y = normalizeAxisValue(this.gamma * -1, this.yMaxDeg);
           return `transform: rotateX(${x}deg) rotateY(${y}deg)`
         }
         return this.debug ? '' : 'background-color: red; transform: rotateX(0deg) rotateY(0deg)';

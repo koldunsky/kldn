@@ -12,14 +12,20 @@ html,
   -moz-osx-font-smoothing: grayscale;
 
 html
-  font-size: 10 / 16 * 100%
+  font-size: (10 / 16) * 100%
 
 body
   color: $font-color
   font-family: $font
 
+
 img
   max-width: 100%
+
+*::selection {
+  color: white
+  background: rgba(255, 0, 0, .5);
+}
 
 .kldn-page
   z-index: 1

@@ -1,6 +1,9 @@
 <template>
   <div class="kldn-bg">
-    <AccelLayer class="kldn-bg__accel">
+    <AccelLayer
+      class="kldn-bg__accel"
+      :gyroRelative="false"
+    >
 
       <div
         class="kldn-bg__img"
@@ -8,8 +11,14 @@
       >
       </div>
     </AccelLayer>
+
+    <AccelLayer
+      class="kldn-bg__overlay-accel"
+      :gyroRelative="false"
+    >
       <div class="kldn-bg__overlay">
       </div>
+    </AccelLayer>
   </div>
 </template>
 

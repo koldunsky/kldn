@@ -24,8 +24,16 @@
 .kldn-header__name
   cell(1, 2)
   //text-transform: uppercase
+  color: white;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
   font-weight: 700
-  font-size: 4.8rem
+  font-size: 6rem
+  -webkit-font-smoothing: antialiased
+  @media $bp-desktop
+    font-size: 8rem
+    -webkit-text-stroke-width: 1px;
 
 
 .kldn-header ul
