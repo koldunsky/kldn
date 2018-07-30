@@ -162,7 +162,7 @@
           const y = normalizeAxisValue(this.gamma * -1, this.yMaxDeg);
           return `transform: rotateX(${x}deg) rotateY(${y}deg)`
         }
-        return this.debug ? '' : 'background-color: red; transform: rotateX(0deg) rotateY(0deg)';
+        return this.debug ? 'background-color: red; transform: rotateX(0deg) rotateY(0deg)' : '';
       }
     }
   }

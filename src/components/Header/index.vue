@@ -1,13 +1,17 @@
 <template>
   <header class="kldn-header">
     <div class="kldn-header__name">
-      {{name}}
+      ruslan
+      koldunsky
     </div>
-    <ul>
-      <li>
-        <router-link to="/photo">Photo</router-link>
-      </li>
-    </ul>
+    <div class="kldn-header__description">
+      Experienced frontend developer passionate about (web)design
+    </div>
+    <!--<ul>-->
+    <!--<li>-->
+    <!--<router-link to="/photo">Photo</router-link>-->
+    <!--</li>-->
+    <!--</ul>-->
   </header>
 </template>
 
@@ -15,7 +19,6 @@
   export default {
     data() {
       return {
-        name: 'koldunsky'
 //        name: 'kld'
       }
     }

@@ -31,7 +31,7 @@
     },
     data() {
       return {
-//        bgImg: require('../../assets/bg.jpg')
+//        bgImg: require('../../assets/cam.jpg')
         bgImg: 'https://pp.userapi.com/c840720/v840720613/82276/8HLPTg27VSI.jpg'
       }
     }

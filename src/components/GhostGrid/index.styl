@@ -1,14 +1,20 @@
 @require "../../core/styl/core.styl"
 
-$border-styles = rgba(white, 1) 1px solid
+$border-styles = rgba(#999, .5) 1px solid
+
+
 
 .kldn-ghost-grid
+  transition: 1s ease-in height
+  height: 0
   position: fixed
-  height: 100%
   width: 100%
   pointer-events: none
   z-index: 500
   grid()
+
+.dom-loaded .kldn-ghost-grid
+  height: 120%
 
 .kldn-ghost-grid__col
   cell(2)

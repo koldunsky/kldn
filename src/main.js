@@ -13,3 +13,7 @@ new Vue({
   components: {App},
   template: '<App/>'
 });
+
+window.addEventListener('load', () => {
+  document.querySelector('html').classList.add('dom-loaded');
+});

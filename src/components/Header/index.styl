@@ -15,55 +15,35 @@
 .kldn-header
   grid()
   color: $font-color-inverted
-  padding-top: 3rem
+  padding-top: 1rem
   //position: fixed
   display: block
   z-index: 400
   position: relative
 
 .kldn-header__name
+  padding-top: 2rem
   cell(1, 2)
   //text-transform: uppercase
   color: white;
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: white;
+  //-webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  //-webkit-text-stroke-width: 2px;
+  //-webkit-text-stroke-color: white;
   font-weight: 700
-  font-size: 6rem
+  font-size: 5.5rem
+  line-height: 1
   -webkit-font-smoothing: antialiased
   @media $bp-desktop
+    max-width: 50%
     font-size: 8rem
     -webkit-text-stroke-width: 1px;
 
-
-.kldn-header ul
-  cell(1, 2)
+.kldn-header__description
+  cell(1,2)
+  font-size: 1em
+  padding-top: 4rem
   font-family: Georgia, serif
-  font-style: italic
-  list-style-type none
-
-
-.kldn-header ul a
-  color: #fff
-  font-style: bold
-  font-size: 1.2rem
-  text-decoration: none
-  position: relative
-  &::after
-    content: ''
-    position: absolute
-    bottom: 0
-    background: currentcolor
-    height: 1px
-    width: 100%
-    left: 0
-    transition-duration: .4s
-    transition-timing-function ease-in
-    transition-property: bottom, opacity
-
-
-.kldn-header ul a:hover
-  &::after
-    transition-timing-function ease-out
-    opacity: 0
-    bottom: 100%
+  font-weight: 200
+  @media $bp-desktop
+    font-size: 1.3em
+    max-width: 50%
