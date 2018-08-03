@@ -17,3 +17,8 @@ new Vue({
 window.addEventListener('load', () => {
   document.querySelector('html').classList.add('dom-loaded');
 });
+
+// window.addEventListener('scroll', (e) => {
+//   const el = document.querySelector('body');
+//   console.info(el.scrollTop);
+// });

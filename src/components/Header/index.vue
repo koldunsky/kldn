@@ -1,5 +1,8 @@
 <template>
   <header class="kldn-header">
+    <div class="kldn-header__bg">
+      <Background/>
+    </div>
     <div class="kldn-header__name">
       ruslan
       koldunsky
@@ -16,10 +19,11 @@
 </template>
 
 <script>
+  import Background from '../../components/Background/index'
   export default {
+    components: {Background},
     data() {
       return {
-//        name: 'kld'
       }
     }
   }

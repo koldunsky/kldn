@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <GhostGrid/>
-    <Header/>
     <div class="kldn-page">
       <router-view/>
     </div>

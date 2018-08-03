@@ -17,14 +17,19 @@ body
   color: $font-color
   font-family: $font
   font-size: 1.6rem
+  overflow-x: hidden;
+  overflow-y: visible;
 
 img
   max-width: 100%
 
 *::selection {
-  color: white
-  background: rgba(255, 0, 0, .5);
+  color: lighten($accent-color, 10%)
+  background: rgba(#fff, 5)
+  outline: 1px dashed red
 }
 
 .kldn-page
+  position: relative
+  height: 100%
   z-index: 1

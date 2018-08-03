@@ -1,0 +1,21 @@
+@require "../../core/styl/core.styl"
+
+.kldn-contacts
+  init-appearance(1.7s)
+  cell()
+  zindex('contacts')
+  width: 100%
+  display: block
+  position: fixed
+  left: 0
+  bottom: 2rem
+  font-size: 1.8rem
+  @media $bp-desktop
+    width: (100 / 6%)
+    right: 0
+    top: 3rem
+    bottom: auto
+    left: auto
+
+.kldn-contacts__contact
+  margin-bottom: 1rem

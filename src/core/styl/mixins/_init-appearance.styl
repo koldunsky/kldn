@@ -1,0 +1,7 @@
+init-appearance($delay = 1.2s)
+  will-change opacity
+  opacity: 0
+  transition: .5s $trans-ease-out-quad opacity
+  transition-delay $delay
+  .dom-loaded &
+    opacity: 1

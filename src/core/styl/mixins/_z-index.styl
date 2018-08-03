@@ -1,0 +1,10 @@
+zarray = {
+  'header'  : 1,
+  'contacts'    : 2,
+  'ghost-grid' : 3,
+}
+
+// Step 2  - Add the extremely simple mixin
+// I don't do any checking because I want it to error out on compile if I forgot something
+zindex(elem)
+  z-index zarray[elem]

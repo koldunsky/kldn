@@ -1,8 +1,29 @@
 @require "../../core/styl/core.styl"
 
 .kldn-main-page
+  grid()
   width: 100%
   height: 100%
   color: $font-color
+
+.kldn-main-page__cv-container
+  cell(5,6)
+  init-appearance(1.5s)
+  padding-top: 5rem
+  padding-bottom: 5rem
+
+
+.kldn-main-page__cv-grid
   grid()
+  margin-left: -($gutter)
+  margin-right: -($gutter)
+
+.kldn-main-page__cv-block
+  cell(1,1)
+  &:nth-child(odd)
+    @media $bp-desktop
+      cell(3,5)
+  &:nth-child(even)
+    @media $bp-desktop
+      cell(2,5)
 

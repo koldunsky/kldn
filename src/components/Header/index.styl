@@ -10,25 +10,28 @@
   }
 }
 
-
-
 .kldn-header
   grid()
-  color: $font-color-inverted
-  padding-top: 1rem
-  //position: fixed
-  display: block
-  z-index: 400
+  width: 100%
+  height: calc(100% - 7rem)
   position: relative
+  color: $font-color-inverted
+  display: block
+  zindex('header')
+
+.kldn-header__bg
+  position: absolute
+  z-index: 1
+  height: 100%
+  width: 100%
 
 .kldn-header__name
+  position: relative
+  z-index: 2
+  transform: translateZ(300px)
   padding-top: 2rem
   cell(1, 2)
-  //text-transform: uppercase
   color: white;
-  //-webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  //-webkit-text-stroke-width: 2px;
-  //-webkit-text-stroke-color: white;
   font-weight: 700
   font-size: 5.5rem
   line-height: 1
@@ -39,6 +42,9 @@
     -webkit-text-stroke-width: 1px;
 
 .kldn-header__description
+  position: relative
+  z-index: 2
+  transform: translateZ(300px)
   cell(1,2)
   font-size: 1em
   padding-top: 4rem

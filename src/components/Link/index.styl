@@ -1,0 +1,36 @@
+@require "../../core/styl/core.styl"
+
+.kldn-link
+  position: relative
+  display: inline-block
+  font-size: inherit
+  line-height: inherit
+  color: blue
+  font-family: $font-secondary
+  text-transform: none
+  text-decoration: none
+
+.kldn-link::after {
+  position: absolute
+  content: ''
+  width: 100%
+  height: 1px
+  top: 0
+  left: 0
+  background: currentcolor
+  opacity: 0
+  transition: .3s $trans-ease-out-quad
+  transition-property opacity bottom
+  z-index: -1
+}
+
+// Hover
+.kldn-link:hover {
+  color: #fff
+}
+
+.kldn-link:hover::after {
+  height: 100%
+  opacity: 1
+  background: $accent-color
+}

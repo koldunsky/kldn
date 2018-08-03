@@ -3,7 +3,7 @@
 @import '~s-grid/s-grid-settings'
 
 base-font-size = 10
-gutter = 2rem
+gutter = $gutter *2
 columns = 12
 
 breakpoints = {
@@ -15,6 +15,7 @@ breakpoints = {
 }
 
 @import '~s-grid/s-grid-functions'
+// https://github.com/juliancwirko/s-grid/blob/master/s-grid-functions.styl
 
 cell(i = 1, cols = columns, align = '', g = gutter)
   if g is not 0

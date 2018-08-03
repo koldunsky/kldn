@@ -6,20 +6,22 @@ $border-styles = rgba(#999, .5) 1px solid
 
 .kldn-ghost-grid
   transition: 1s ease-in height
+  top: -30%
   height: 0
   position: fixed
   width: 100%
   pointer-events: none
-  z-index: 500
+  zindex('ghost-grid')
   grid()
 
 .dom-loaded .kldn-ghost-grid
-  height: 120%
+  height: 150%
 
 .kldn-ghost-grid__col
+  //outline 1px solid cyan
   cell(2)
   height: 100%
-  opacity: 0
+  opacity:0
   &:first-child,
   &:last-child,
   &:nth-child(4) {

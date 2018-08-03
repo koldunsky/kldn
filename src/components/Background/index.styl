@@ -1,28 +1,23 @@
 @require '../../core/styl/core.styl'
 
 .kldn-bg__img
+  init-appearance()
   height: 100%
   width: 100%
   background-position: center
   -webkit-background-size: cover
   background-size: cover
   visibility hidden
-  opacity: 0
-  transition: .5s $trans-ease-out-quad opacity
-  transition-delay 1.2s
   @media $bp-desktop
     visibility visible
 
-.dom-loaded .kldn-bg__img
-  opacity: 1
-
 .kldn-bg
-  absolute-center()
-  position: fixed
+  //absolute-center()
+  position: relative
   height: 100%
   width: 100%
   background: transparent
-  transition: 2s $trans-ease-out-quad .5s
+  transition: 2s $trans-ease-out-quad .5s background
 
 .dom-loaded .kldn-bg
   background: #a8aeae
@@ -40,9 +35,10 @@
 .kldn-bg__overlay
   height: 100%
   width: 100%
-  background: blue
+  background: $accent-color
 
 .kldn-bg__overlay-accel
+  opacity: .6
   transform: translateZ(200px)
   mix-blend-mode: multiply
   position: absolute
