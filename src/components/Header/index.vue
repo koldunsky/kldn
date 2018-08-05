@@ -4,8 +4,8 @@
       <Background/>
     </div>
     <div class="kldn-header__name">
-      ruslan
-      koldunsky
+      <span class="kldn-header__name-part">ruslan</span>
+      <span class="kldn-header__name-part">koldunsky</span>
     </div>
     <div class="kldn-header__description">
       Experienced frontend developer passionate about (web)design

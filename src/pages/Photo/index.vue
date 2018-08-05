@@ -21,7 +21,7 @@
   export default {
     data() {
       return {
-        dummy: require('../../assets/bg.jpg')
+        dummy: require('../../assets/cam.jpg')
       }
     }
   }

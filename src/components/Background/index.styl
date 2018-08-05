@@ -1,36 +1,36 @@
 @require '../../core/styl/core.styl'
 
+.kldn-bg
+//absolute-center()
+  position: relative
+  height: 100%
+  width: 100%
+  transition: 2s $trans-ease-out-quad .5s background
+  overflow: hidden
+
+
 .kldn-bg__img
-  init-appearance()
+  init-appearance(1s)
   height: 100%
   width: 100%
   background-position: center
   -webkit-background-size: cover
-  background-size: cover
-  visibility hidden
+  background-size: contain
+  background-repeat: no-repeat
+  background-color: #9fabae
   @media $bp-desktop
     visibility visible
-
-.kldn-bg
-  //absolute-center()
-  position: relative
-  height: 100%
-  width: 100%
-  background: transparent
-  transition: 2s $trans-ease-out-quad .5s background
-
-.dom-loaded .kldn-bg
-  background: #a8aeae
-  @media $bp-desktop
-    background: transparent
+    background-size: cover
+  @media (max-width: 600px)
+    background-image: none !important
 
 .kldn-bg__accel
   absolute-center()
   width: 110% !important
-  height: 110% !important
-  transform: translate(-5%, 0)
+  height: 100% !important
+  transform: translate(-5%, -3%)
   @media $bp-desktop
-    background: none
+    //background: none
 
 .kldn-bg__overlay
   height: 100%
@@ -44,8 +44,9 @@
   position: absolute
   top: -100%
   transition: 1s $trans-ease-out-quad .5s
+  transition-property: top left
   width: calc(75% - 2rem) !important
-  height: calc(75% - 2rem) !important
+  height: calc(88% - 2rem) !important
 
   @media $bp-desktop
     height: 55% !important

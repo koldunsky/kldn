@@ -11,19 +11,22 @@
 }
 
 .kldn-header
-  grid()
+  grid(1,1)
+  zindex('header')
   width: 100%
-  height: calc(100% - 7rem)
+  height: calc(100% - 3rem)
   position: relative
   color: $font-color-inverted
   display: block
-  zindex('header')
+  @media $bp-desktop
+    height: calc(100% - 3rem)
 
 .kldn-header__bg
   position: absolute
   z-index: 1
   height: 100%
   width: 100%
+
 
 .kldn-header__name
   position: relative
@@ -40,6 +43,9 @@
     max-width: 50%
     font-size: 8rem
     -webkit-text-stroke-width: 1px;
+
+.kldn-header__name-part
+  display: block
 
 .kldn-header__description
   position: relative
