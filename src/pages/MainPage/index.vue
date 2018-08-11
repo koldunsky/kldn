@@ -44,23 +44,20 @@
         blocks: [
           {
             title: 'Interesting facts about me',
-            text:
-            this.getAge() + ' aged frontend developer located in Moscow, Russia.'
+            text: ''
           },
           {
             title: 'Not such interesting facts',
-            text:
-            this.getAge() + ' aged frontend developer located in Moscow, Russia.'
+            text: ''
           },
           {
             title: 'Areas of Expertise',
             text: [
               'Web-design development',
-              'UI brand kits',
               'UI/UX development and optimisation',
+              'UI brand kits',
               'Reusable components',
-              'Mobile first',
-              'Responsive/adaptive layout',
+              'Mobile first responsive/adaptive layout',
               'Website load speed improving',
             ]
           },
@@ -70,8 +67,8 @@
               'JS(ES6+, Babel)',
               'CSS(SCSS, Stylus)',
               'HTML + HTML5(video API, localstorage, etc.)',
-              'Webpack, gulp',
               'React/Redux, Vue/Vuex',
+              'Webpack, gulp',
               'Pug, Twig, Moustache, Hanlebars',
               'SVG, Canvas',
               'AJAX',
