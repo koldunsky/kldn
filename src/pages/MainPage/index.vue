@@ -1,6 +1,6 @@
 <template>
   <div class="kldn-main-page">
-    <Header/>
+    <Header2/>
     <Contacts/>
     <div class="kldn-main-page__cv-container">
       <div class="kldn-main-page__cv-grid">
@@ -29,13 +29,13 @@
 </template>
 
 <script>
-  import Header from '../../components/Header/index.vue'
+  import Header2 from '../../components/Header2/index.vue'
   import ContentBlock from '../../components/ContentBlock/index.vue'
   import Contacts from '../../components/Contacts/index.vue'
 
   export default {
     components: {
-      Header,
+      Header2,
       ContentBlock,
       Contacts
     },
@@ -43,7 +43,12 @@
       return {
         blocks: [
           {
-            title: 'Summary',
+            title: 'Interesting facts about me',
+            text:
+            this.getAge() + ' aged frontend developer located in Moscow, Russia.'
+          },
+          {
+            title: 'Not such interesting facts',
             text:
             this.getAge() + ' aged frontend developer located in Moscow, Russia.'
           },
@@ -53,14 +58,23 @@
               'Web-design development',
               'UI brand kits',
               'UI/UX development and optimisation',
-              'Website load speed improving'
+              'Reusable components',
+              'Mobile first',
+              'Responsive/adaptive layout',
+              'Website load speed improving',
             ]
           },
           {
             title: 'Technical Skills',
             text: [
               'JS(ES6+, Babel)',
-              'CSS(SCSS, Stylus)'
+              'CSS(SCSS, Stylus)',
+              'HTML + HTML5(video API, localstorage, etc.)',
+              'Webpack, gulp',
+              'React/Redux, Vue/Vuex',
+              'Pug, Twig, Moustache, Hanlebars',
+              'SVG, Canvas',
+              'AJAX',
             ]
           }
         ]

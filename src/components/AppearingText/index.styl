@@ -1,0 +1,36 @@
+@require "../../core/styl/core.styl"
+@require "./utils.styl"
+
+$duration = 3s
+
+forwards($animName)
+  animation: $animName $duration
+  animation-fill-mode: forwards
+  animation-direction: normal
+
+backwards($animName)
+  animation: $animName $duration
+  animation-direction reverse
+  animation-fill-mode: forwards
+
+
+.kldn-atext
+  word()
+  vertical-align: top
+  display: inline-block
+
+
+.kldn-atext_hide
+  backwards(word)
+  background: green
+  &::after {
+    backwards(curtain)
+  }
+
+
+.kldn-atext_show
+  forwards(word)
+  background: red
+  &::after {
+    forwards(curtain)
+  }

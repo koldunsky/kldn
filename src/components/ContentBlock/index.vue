@@ -3,8 +3,10 @@
     <div class="kldn-content-block__title">
       {{title}}
     </div>
-    <slot>
-    </slot>
+    <div class="kldn-content-block__content">
+      <slot>
+      </slot>
+    </div>
   </div>
 </template>
 

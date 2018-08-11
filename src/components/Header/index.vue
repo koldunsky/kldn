@@ -8,7 +8,7 @@
       <span class="kldn-header__name-part">koldunsky</span>
     </div>
     <div class="kldn-header__description">
-      Experienced frontend developer passionate about (web)design
+      Experienced <AppearingText text="frontend developer"></AppearingText> passionate about <AppearingText text="(web)design"></AppearingText>
     </div>
     <!--<ul>-->
     <!--<li>-->
@@ -20,8 +20,12 @@
 
 <script>
   import Background from '../../components/Background/index'
+  import AppearingText from '../../components/AppearingText/index'
   export default {
-    components: {Background},
+    components: {
+      Background,
+      AppearingText,
+    },
     data() {
       return {
       }

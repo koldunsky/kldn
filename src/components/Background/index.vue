@@ -6,9 +6,16 @@
     >
 
       <div
-        class="kldn-bg__img"
+        class="kldn-bg__img kldn-bg__img_desktop"
         :style="{'background-image': 'url(' + image.desktop+ ')'}"
+      />
+      <div
+        class="kldn-bg__img kldn-bg__img_mobile"
       >
+        <div class="kldn-bg__transparent-camera"
+             :style="{'background-image': 'url(' + image.mobile+ ')'}"
+        >
+        </div>
       </div>
       <!--<picture-->
         <!--class="kldn-bg__img"-->

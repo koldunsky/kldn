@@ -1,0 +1,141 @@
+@require "../../core/styl/core.styl"
+@require "./utility.styl"
+/*
+** Change this if you need to modify
+** the amount of lines displayed
+*/
+$total-lines = 4;
+
+$fz = 2.2rem;
+$fz-desktop = 4rem;
+$bg = #5138BE;
+$delay = .8s;
+.kldn-header
+  position: relative
+  padding-top: 2rem
+  max-width: 100%
+  width: 100%
+  overflow: hidden
+  height: calc(100% - 3rem)
+  background-image: url('https://pp.userapi.com/c841128/v841128391/2f6f7/epPv-vu3KfI.jpg')
+  background-position: 100% 100%
+  background-size: 80%
+  background-repeat: no-repeat
+  @media $bp-desktop
+    min-height: 65rem
+    padding-top: 0
+    background-size: auto 80%
+
+/*
+** Apply styles to the parent element
+*/
+.Words
+  words-container($fz);
+  width: 0
+  padding: 0 $gutter 0;
+  transition: .5s $trans-ease-out-quad transform
+  transform: translateX(-100%)
+  transition-delay 1.2s
+  @media $bp-desktop
+    words-container($fz-desktop);
+    transform: translateX(0)
+    position: absolute
+    left: 0
+    top: 15.75rem
+
+.dom-loaded .Words
+  transform translateX(0)
+/*
+** Apply common styles to each line of text
+*/
+
+.Words-line
+  words-line($fz);
+  @media $bp-desktop
+    words-line($fz-desktop);
+
+
+/*
+** Fine-grained text styles
+*/
+.Words-line__content
+  words-line-content($fz);
+  position: relative
+  padding-left: .7rem
+  color: blue
+  transition: .5s $trans-ease-out-quad margin
+  .Words-line:nth-child(even) &
+    margin-top: -2em
+    transition-delay $initDelay
+  .Words-line:nth-child(odd) &
+    margin-top: 2em
+    transition-delay $initDelay + .2s
+
+  @media $bp-desktop
+    words-line-content($fz-desktop);
+
+.dom-loaded .Words-line__content
+  margin-top: 0 !important
+
+//.Words-line__content_mask
+//  //background: red
+//  position: absolute
+//  left: 0
+//  top: 0
+//  overflow: hidden !important
+//  height: 0
+//  transition: .2s linear height
+
+
+.dom-loaded .Words-line__content_mask
+  height:100%
+
+.kldn-header__name
+  letter-spacing: -.05em;
+  font-size: 3.5rem;
+  line-height: @font-size * .9
+  font-weight: 900;
+  position: relative;
+  transform-origin: 0 0;
+  transform: $base-trnsfrm;
+  text-transform: uppercase
+  padding-left: $gutter
+  padding-right: $gutter
+  padding-top: 1rem
+  transition: .5s $trans-ease-out-quad
+  transition-property left top
+  transition-delay $delay
+
+  @media $bp-desktop
+    font-size: 5rem;
+    line-height: 4.7rem
+    left: -100%
+    top: -100%
+    transform: skew(0deg, 30deg) scaleY(1.33333)
+
+
+.dom-loaded .kldn-header__name
+  @media $bp-desktop
+    top: 0
+    left: 0
+
+
+
+.kldn-header__name::after
+    display: none
+    transform: skew(0deg, 30deg) translateY(-3rem)
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid red;
+    left: -50%;
+    bottom: 0
+    width: 0
+    transition: 1s $trans-ease-out-quad
+    transition-property width
+    transition-delay $delay
+    @media $bp-desktop
+      display: block
+      transform: none
+
+.dom-loaded .kldn-header__name::after
+  width: 50% + (100% / 6 * 3);

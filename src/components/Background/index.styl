@@ -11,24 +11,42 @@
 
 .kldn-bg__img
   init-appearance(1s)
+  position: relative
   height: 100%
   width: 100%
-  background-position: center
-  -webkit-background-size: cover
-  background-size: contain
   background-repeat: no-repeat
-  background-color: #9fabae
-  @media $bp-desktop
-    visibility visible
-    background-size: cover
-  @media (max-width: 600px)
-    background-image: none !important
+  background-color: #c4cacb
+
+.kldn-bg__img_mobile
+  overflow: hidden
+  @media $bp-tablet
+    display: none
+
+.kldn-bg__transparent-camera
+  display: none
+  background-size: contain
+  background-position: center
+  background-repeat: no-repeat
+  width: 100%
+  max-width: 64rem
+  padding-top: 100%
+  position: absolute
+  bottom: -30%
+  right: -20%
+
+.kldn-bg__img_desktop
+  background-position: center
+  display: none
+  -webkit-background-size: cover
+  background-size: cover
+  @media $bp-tablet
+    display: block
 
 .kldn-bg__accel
   absolute-center()
   width: 110% !important
-  height: 100% !important
-  transform: translate(-5%, -3%)
+  height: 107% !important
+  transform: translate(-5%, -10%)
   @media $bp-desktop
     //background: none
 
@@ -47,6 +65,10 @@
   transition-property: top left
   width: calc(75% - 2rem) !important
   height: calc(88% - 2rem) !important
+
+  @media $bp-tablet
+    width: calc(50% - 2rem) !important
+    height: calc(50% - 2rem) !important
 
   @media $bp-desktop
     height: 55% !important

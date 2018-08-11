@@ -1,0 +1,66 @@
+
+@keyframes curtain {
+  0% {
+    width: 0;
+    left: 0;
+    right: auto;
+  }
+
+  25% {
+    width: 100%;
+    left: 0;
+    right: auto;
+  }
+  75% {
+    width: 100%;
+    left: auto;
+    right: 0;
+  }
+  100% {
+    width: 0;
+    left: auto;
+    right: 0;
+  }
+}
+@keyframes word {
+  0% {
+    max-width: 0;
+    overflow: hidden;
+    color: transparent;
+  }
+  49% {
+    color: transparent
+  }
+  50% {
+    color: inherit
+  }
+  100% {
+    max-width: 30rem;
+  }
+}
+
+word($color = inherit, $curtainColor = MediumTurquoise, $speed = 3s) {
+  //color: transparent;
+  overflow: hidden
+  white-space nowrap
+  position: relative;
+  display: inline-block;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 0;
+    background: $curtainColor;
+  }
+  //&.word_hidden {
+  //  color: $color;
+  //  transition-delay: 0;
+  //  &::after {
+  //    animation: curtain $speed;
+  //  }
+  //}
+}

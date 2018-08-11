@@ -1,0 +1,60 @@
+@require "../../core/styl/core.styl"
+
+words-container($fz)
+  background: $accent-color
+  letter-spacing: -.05em;
+  // background: #000;
+  // margin: 0 auto;
+  font-size: 0
+  font-weight: 900;
+  text-transform: uppercase;
+  // Sort out nasty text fuzz
+  transform: translate3d(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-kerning: normal;
+  -webkit-text-size-adjust: 100%;
+  @media $bp-desktop
+    background: none
+
+words-line($fz)
+  $total-lines = 4;
+  $left-offset = $fz * .75;
+  $clip-height = $fz * .9;
+  $translate-correction-even = translate(0, 0);
+  $translate-correction = translate($fz * -0.5, 0);
+
+  height: $clip-height;
+  width: 100vw
+  vertical-align middle
+  overflow: hidden;
+  position: relative;
+  transform-origin: 100% 100%
+  @media $bp-desktop
+    width: 60rem
+  // Change the perspective of each alternating line
+  &:nth-child(odd)
+    @media $bp-desktop
+      transform: skew(60deg, -30deg) scaleY(.66667) $translate-correction-even;
+
+  &:nth-child(even)
+    @media $bp-desktop
+      transform: skew(0deg, -30deg) scaleY(1.33333) $translate-correction;
+
+  // Loop over the total lines and apply a left offset
+  for $i in (1...$total-lines + 1)
+    &:nth-child({$i})
+      left: $gutter * $i;
+      @media $bp-desktop
+        left: $left-offset * $i;
+
+
+words-line-content($fz)
+  $clip-height = $fz * .9;
+  $line-height = $clip-height - ($fz * .1);
+  font-size: $fz
+  height: $clip-height;
+  line-height: $line-height;
+  display: inline-block
+  transform: translate3d(0, 0, 0);
+  vertical-align: middle;
+  white-space: nowrap;
