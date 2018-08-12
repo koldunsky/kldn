@@ -1,5 +1,13 @@
 <template>
   <div class="kldn-header">
+    <video
+      class="kldn-header__video-bg"
+      :src="require('../../assets/videoBg/Waving/video.mp4')"
+      autoplay="true"
+      muted="true"
+      ref="video"
+    >
+    </video>
     <ul class="Words">
       <li class="Words-line">
         <p class="Words-line__content">Experienced</p>
@@ -51,11 +59,21 @@
       }
     },
     mounted() {
+      // Change slogan
       setTimeout(() => {
         setInterval(() => {
           this.step = this.step === this.slogans.length - 1 ? 0 : this.step + 1;
         }, 10000);
       }, 5000);
+
+      // Play video
+//      this.$refs.video.play();
+      const {video} = this.$refs;
+      console.dir(video);
+      video.oncanplay = () => {
+        console.info('video loaded');
+        video.play();
+      }
     },
     computed: {
       currentSlogan: function () {

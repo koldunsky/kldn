@@ -20,6 +20,11 @@ body
   font-size: 1.6rem
   min-width: 32rem
 
+#app
+  height: auto
+  min-height: 100%
+  position: relative
+
 img
   max-width: 100%
 
@@ -33,6 +38,40 @@ img
   position: relative
   height: 100%
   z-index: 1
+
+.kldn-footer
+  position: absolute
+  bottom: 0
+  width: 100%
+  padding-left: $gutter
+
+@keyframes brick-hop {
+  0% {
+    bottom: 0;
+    transform: rotateZ(0deg);
+  }
+  15% {
+    bottom: 5rem
+  }
+  30% {
+    bottom: 0
+  }
+  45% {
+    bottom: 3rem
+    transform: rotateZ(180deg);
+  }
+  100% {
+    bottom: 0
+    transform: rotateZ(720deg);
+  }
+}
+
+.kldn-footer__brick
+  width: $gutter
+  height: $gutter
+  background: $accent-color
+  margin: 0 auto
+  //animation: brick-hop infinite 1s
 
 *
   //outline 1px dotted red

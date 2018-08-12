@@ -21,7 +21,10 @@ new Vue({
   el: '#app',
   router,
   components: {App},
-  template: '<App/>'
+  template: '<App/>',
+  mounted() {
+    // document.querySelector('html').classList.add('dom-loaded');
+  }
 });
 
 window.addEventListener('load', () => {

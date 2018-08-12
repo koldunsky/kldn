@@ -44,11 +44,11 @@
         blocks: [
           {
             title: 'Interesting facts about me',
-            text: ''
+            text: 'Fact'
           },
           {
             title: 'Not such interesting facts',
-            text: ''
+            text: 'Track'
           },
           {
             title: 'Areas of Expertise',
