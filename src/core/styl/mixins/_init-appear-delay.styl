@@ -1,0 +1,13 @@
+_init-appear-delay = {
+  'name' : 1s,
+  'slogan'  : 1.4s,
+  'slogan-even'  : 1.6s,
+  'slogan-odd'  : 1.8s,
+  'contacts'    : 2.3s,
+  'content' : 2.5s,
+}
+
+// Step 2  - Add the extremely simple mixin
+// I don't do any checking because I want it to error out on compile if I forgot something
+init-appear-delay(elem)
+  transition-delay: _init-appear-delay[elem]

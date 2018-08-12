@@ -1,7 +1,11 @@
-init-appearance($delay = 1.2s)
-  will-change opacity
+@import './_init-appear-delay.styl'
+
+init-appearance()
+  transform: translateY(3rem);
   opacity: 0
-  transition: .5s $trans-ease-out-quad opacity
-  transition-delay $delay
+  transition: .5s $trans-ease-out-quad
+  transition-property: opacity transform
+  will-change:opacity transform
   .dom-loaded &
+    transform: translateY(0);
     opacity: 1

@@ -2,24 +2,29 @@
   <div class="kldn-header">
     <video
       class="kldn-header__video-bg"
-      :src="require('../../assets/videoBg/Waving/video.mp4')"
-      autoplay="true"
+      :class="{
+        'kldn-header__video-bg_is-loaded': video.isLoaded
+      }"
+      :src="videoSrc"
+      :autoplay="true"
+      :controls="false"
+      playsinline="true"
       muted="true"
       ref="video"
     >
     </video>
-    <ul class="Words">
-      <li class="Words-line">
-        <p class="Words-line__content">Experienced</p>
+    <ul class="kldn-words">
+      <li class="kldn-words-line">
+        <p class="kldn-words-line__content">Experienced</p>
       </li>
-      <li class="Words-line">
-        <p class="Words-line__content">{{currentSlogan[0]}}</p>
+      <li class="kldn-words-line">
+        <p class="kldn-words-line__content">{{currentSlogan[0]}}</p>
       </li>
-      <li class="Words-line">
-        <p class="Words-line__content">passionate about</p>
+      <li class="kldn-words-line">
+        <p class="kldn-words-line__content">passionate about</p>
       </li>
-      <li class="Words-line">
-        <p class="Words-line__content">{{currentSlogan[1]}}</p>
+      <li class="kldn-words-line">
+        <p class="kldn-words-line__content">{{currentSlogan[1]}}</p>
       </li>
     </ul>
     <div class="kldn-header__name">
@@ -40,6 +45,11 @@
     data() {
       return {
         step: 0,
+        videoSrc:  '',
+        videoDummySrc: require('../../assets/videoBg/Waving/video.mp4'),
+        video: {
+          isLoaded: false,
+        },
         slogans: [
           ['frontend developer', '(web)design'],
           ['vacuum cleaner', 'your socks'],
@@ -67,13 +77,21 @@
       }, 5000);
 
       // Play video
-//      this.$refs.video.play();
+      // this.$refs.video.play();
       const {video} = this.$refs;
       console.dir(video);
-      video.oncanplay = () => {
-        console.info('video loaded');
-        video.play();
-      }
+      window.onload = () => {
+        video.oncanplay = () => {
+          console.info('video loaded');
+          this.video.isLoaded = true;
+          setTimeout(()=> {
+//            video.play();
+          }, 6000);
+        };
+        setTimeout(() => {
+          this.videoSrc = this.videoDummySrc;
+        }, 3000);
+      };
     },
     computed: {
       currentSlogan: function () {
