@@ -1,18 +1,21 @@
 <template>
   <div class="kldn-header">
-    <video
-      class="kldn-header__video-bg"
-      :class="{
+    <div class="kldn-header__video">
+      <img :src="video.current.start" alt="" class="kldn-header__video-poster">
+      <video
+        class="kldn-header__video-bg"
+        :class="{
         'kldn-header__video-bg_is-loaded': video.isLoaded
       }"
-      :src="videoSrc"
-      :autoplay="true"
-      :controls="false"
-      playsinline="true"
-      muted="true"
-      ref="video"
-    >
-    </video>
+        :src="video.current.src"
+        :autoplay="true"
+        :controls="false"
+        :playsinline="true"
+        :muted="true"
+        ref="videoEl"
+      >
+      </video>
+    </div>
     <ul class="kldn-words">
       <li class="kldn-words-line">
         <p class="kldn-words-line__content">Experienced</p>
@@ -35,8 +38,16 @@
 </template>
 
 <script>
+  import shuffleArray from '../../core/js/utility/shuffleArray'
+  import slogans from './slogans'
+
+  import layoutController from '../../core/js/layoutController'
+
   import Background from '../../components/Background/index'
   import AppearingText from '../../components/AppearingText/index'
+  import requireMedia from './requireMedia'
+
+
   export default {
     components: {
       Background,
@@ -44,27 +55,21 @@
     },
     data() {
       return {
-        step: 0,
-        videoSrc:  '',
-        videoDummySrc: require('../../assets/videoBg/Waving/video.mp4'),
+        sloganStep: 0,
         video: {
           isLoaded: false,
+          current:
+            {
+              name: '',
+              src: ''
+            },
+          collection: [
+            ...requireMedia()
+          ]
         },
         slogans: [
           ['frontend developer', '(web)design'],
-          ['vacuum cleaner', 'your socks'],
-          ['peach', 'watermelon'],
-          ['Ross', 'divorce'],
-          ['joker', 'batsy'],
-          ['Scaramouche', 'fandango'],
-          ['Peter', 'pan'],
-          ['Jango', 'freedom'],
-          ['Kaneda', 'Tetsuo'],
-          ['asphalt', 'your knees'],
-          ['Mulder', 'believe'],
-          ['train', 'railroad'],
-          ['umbrella', 'rain'],
-          ['ninja', 'shuriken'],
+          ...shuffleArray(slogans)
         ]
       }
     },
@@ -72,30 +77,53 @@
       // Change slogan
       setTimeout(() => {
         setInterval(() => {
-          this.step = this.step === this.slogans.length - 1 ? 0 : this.step + 1;
-        }, 10000);
-      }, 5000);
+          this.sloganStep = this.sloganStep === this.slogans.length - 1 ? 0 : this.sloganStep + 1;
+        }, 5000);
+      }, 0);
 
       // Play video
-      // this.$refs.video.play();
-      const {video} = this.$refs;
-      console.dir(video);
+      const {videoEl} = this.$refs;
+
       window.onload = () => {
-        video.oncanplay = () => {
+        videoEl.oncanplay = () => {
           console.info('video loaded');
           this.video.isLoaded = true;
-          setTimeout(()=> {
-//            video.play();
-          }, 6000);
         };
+        // Add current video
+        const videoIndex = this.getVideoIndex();
+        console.info('this.video.collection: ', this.video.collection);
+        this.video.current = this.video.collection[videoIndex][layoutController.device];
+        console.info(this.video.current);
         setTimeout(() => {
-          this.videoSrc = this.videoDummySrc;
-        }, 3000);
+          this.video.current.src = this.video.current.video;
+        }, 100);
       };
     },
     computed: {
       currentSlogan: function () {
-        return this.slogans[this.step]
+        return this.slogans[this.sloganStep]
+      }
+    },
+    methods: {
+      getVideoIndex: function () {
+        let index = Math.round(Math.random() * (this.video.collection.length -1));
+        let prevIndex;
+        if('localStorage' in window) {
+          prevIndex = parseInt(window.localStorage.getItem('previousVideo'), 10);
+        }
+
+        if(prevIndex === index) {
+          index++;
+        }
+
+        if(__DEV__) {
+          console.info(index);
+        }
+
+        if('localStorage' in window) {
+          window.localStorage.setItem('previousVideo', index);
+        }
+        return index;
       }
     }
   }

@@ -1,0 +1,43 @@
+import isElement from './isElement';
+
+/**
+ *
+ * @param {HTMLElement} el
+ * @param {string} className
+ */
+export function addClass(el, className) {
+  !isElement(el) ? console.error(`'addClass'`, 'target is not an element:', el) : null;
+  if (el.classList) {
+    el.classList.add(className);
+  } else {
+    el.className += ' ' + className;
+  }
+}
+
+/**
+ *
+ * @param {HTMLElement} el
+ * @param {string} className
+ */
+export function removeClass(el, className) {
+  !isElement(el) ? console.error(`'removeClass'`, 'target is not an element:', el) : null;
+  if (el.classList) {
+    el.classList.remove(className);
+  } else {
+    el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+  }
+}
+
+/**
+ *
+ * @param {HTMLElement} el
+ * @param {string} className
+ */
+export function hasClass(el, className) {
+  !isElement(el) ? console.error(`'hasClass'`, 'target is not an element:', el) : null;
+  if (el.classList) {
+    return el.classList.contains(className);
+  } else {
+    return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+  }
+}

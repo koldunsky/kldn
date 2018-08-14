@@ -18,11 +18,7 @@ $delay = .8s;
   max-width: 100%
   width: 100%
   overflow: hidden
-  height: 33rem
-  //background-image: url('https://pp.userapi.com/c841128/v841128391/2f6f7/epPv-vu3KfI.jpg')
-  background-position: 100% 100%
-  background-size: 80%
-  background-repeat: no-repeat
+  height: 33.5rem
   @media $bp-desktop
     height: calc(100% - 8rem)
     min-height: 61rem
@@ -146,17 +142,33 @@ $delay = .8s;
 .dom-loaded .kldn-header__name::after
   width: 50% + (100% / 6 * 3);
 
-.kldn-header__video-bg
+
+.kldn-header__video
   pointer-events none
-  opacity: 0
-  padding-left: $gutter
-  width: 100%
+  //padding-left: $gutter
+  width: "calc(100% - %s)" % $gutter
   position: absolute
   bottom: 0
   right: 0
-  transition: .3s ease opacity
   @media $bp-tablet
     width: (4 / 6) * 100%
+
+.kldn-header__video::after {
+  content: ''
+  padding-top: 56.25%
+  display: block
+}
+
+.kldn-header__video-poster
+  absolute-center()
+  opacity: .5
+
+
+.kldn-header__video-bg
+  absolute-center()
+  width: 100%
+  height: 100%
+  opacity: 0
 
 .kldn-header__video-bg_is-loaded
   opacity: 1
