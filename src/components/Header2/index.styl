@@ -7,6 +7,7 @@
 $total-lines = 4;
 
 $fz = 2.2rem;
+$fz-tablet = 2.8rem;
 $fz-desktop = 3.8rem;
 $bg = #5138BE;
 $delay = .8s;
@@ -18,13 +19,27 @@ $delay = .8s;
   max-width: 100%
   width: 100%
   overflow: hidden
-  height: 33.5rem
+  //height: 33.5rem
   @media $bp-desktop
     height: calc(100% - 8rem)
     min-height: 61rem
     padding-top: 0
     background-size: auto 80%
     margin-bottom: 7rem
+
+.kldn-header::after
+  content: '';
+  display: block
+  padding-top: 52%;
+
+  @media (orientation: landscape)
+    padding-top: 30%
+
+  @media $bp-tablet
+    padding-top: 30%;
+
+  @media $bp-desktop
+    display: none
 
 /*
 ** Apply styles to the parent element
@@ -36,6 +51,10 @@ $delay = .8s;
   transform: translateX(-100%)
   transition: .5s $trans-ease-out-quad transform
   init-appear-delay('slogan')
+
+  @media $bp-tablet
+    words-container($fz-tablet);
+    transform: translateX(-100%)
 
   @media $bp-desktop
     words-container($fz-desktop);
@@ -52,6 +71,10 @@ $delay = .8s;
 
 .kldn-words-line
   words-line($fz);
+
+  @media $bp-tablet
+    words-line($fz-tablet);
+
   @media $bp-desktop
     words-line($fz-desktop);
 
@@ -71,6 +94,9 @@ $delay = .8s;
   .kldn-words-line:nth-child(odd) &
     init-appear-delay('slogan-odd')
     margin-top: 2em
+
+  @media $bp-tablet
+    words-line-content($fz-tablet);
 
   @media $bp-desktop
     words-line-content($fz-desktop);
@@ -109,6 +135,10 @@ $delay = .8s;
   init-appearance()
   init-appear-delay('name')
 
+  @media $bp-tablet
+    font-size: 4.5rem;
+    line-height: 4.2rem
+
   @media $bp-desktop
     font-size: 4.5rem;
     line-height: 4.2rem
@@ -135,21 +165,27 @@ $delay = .8s;
     transition: 1s $trans-ease-out-quad
     transition-property width
     init-appear-delay('name')
-    @media $bp-desktop
+    @media $bp-tablet
       display: block
       transform: none
+  @media $bp-desktop
+      left: -50%
 
 .dom-loaded .kldn-header__name::after
-  width: 50% + (100% / 6 * 3);
+    width: 50% + (100% / 6 * 3);
 
 
 .kldn-header__video
+  init-appearance()
+  init-appear-delay('video')
   pointer-events none
-  //padding-left: $gutter
   width: "calc(100% - %s)" % $gutter
   position: absolute
   bottom: 0
   right: 0
+  @media  (orientation: landscape)
+    width: "calc(75% - %s)" % $gutter
+
   @media $bp-tablet
     width: (4 / 6) * 100%
 
@@ -161,7 +197,6 @@ $delay = .8s;
 
 .kldn-header__video-poster
   absolute-center()
-  opacity: .5
 
 
 .kldn-header__video-bg

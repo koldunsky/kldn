@@ -24,9 +24,7 @@
           >
             {{daysOfDev().y}} years, {{daysOfDev().m}} months and {{daysOfDev().d}} fascinating days of web development experience. 1 incredible hour of
             <Link href="https://www.youtube.com/watch?&v=1H-z8opCp_Q">
-            reporting</Link> at
-            <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379">
-            RIT++</Link>. 1 year as a team leader at
+            reporting</Link> at <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379"> RIT++</Link>&nbsp;. 1 year as a team leader at
             <Link href="http://kodix.ru" target="_blank">
             Kodix</Link>.
           </ContentBlock>
@@ -114,10 +112,10 @@
         console.info(date1, date2);
         const timeDiff = Math.abs(date2.getTime() - date1.getTime());
 
-        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) / 365)); //full years
-        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) % 365)); // months
-        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) % 365 / 30)); // months
-        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) % 365 % 30)); // days
+//        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) / 365)); //full years
+//        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) % 365)); // months
+//        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) % 365 / 30)); // months
+//        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) % 365 % 30)); // days
         return {
           y: Math.floor(timeDiff / (1000 * 3600 * 24) / 365),
           m: Math.floor(timeDiff / (1000 * 3600 * 24) % 365 / 30),

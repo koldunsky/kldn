@@ -1,9 +1,4 @@
-<template>
-  <a class="kldn-link" :href="href" :target="target">
-    <slot>
-    </slot>
-  </a>
-</template>
+<template><a class="kldn-link" :href="href" :target="target"><slot></slot></a></template>
 
 <script>
   export default {

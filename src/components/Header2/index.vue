@@ -86,8 +86,14 @@
 
       window.onload = () => {
         videoEl.oncanplay = () => {
-          console.info('video loaded');
           this.video.isLoaded = true;
+          try{
+            this.$refs.videoEl.muted = true;
+            this.$refs.videoEl.play();
+          } catch(e) {
+            console.error(e);
+            this.$refs.videoEl.controls = true;
+          }
         };
         // Add current video
         const videoIndex = this.getVideoIndex();
