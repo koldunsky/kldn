@@ -22,9 +22,9 @@
           <ContentBlock
             title="Not such interesting facts"
           >
-            {{daysOfDev().y}} years, {{daysOfDev().m}} months and {{daysOfDev().d}} fascinating days of web development experience. 1 incredible hour of
+            {{daysOfDev()}} of web development experience. 1 incredible hour of
             <Link href="https://www.youtube.com/watch?&v=1H-z8opCp_Q">
-            reporting</Link> at <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379"> RIT++</Link>&nbsp;. 1 year as a team leader at
+            reporting</Link> at <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379"> RIT++</Link>. 1 year as a team leader at
             <Link href="http://kodix.ru" target="_blank">
             Kodix</Link>.
           </ContentBlock>
@@ -116,11 +116,30 @@
 //        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) % 365)); // months
 //        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) % 365 / 30)); // months
 //        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) % 365 % 30)); // days
-        return {
-          y: Math.floor(timeDiff / (1000 * 3600 * 24) / 365),
-          m: Math.floor(timeDiff / (1000 * 3600 * 24) % 365 / 30),
-          d: Math.floor(timeDiff / (1000 * 3600 * 24) % 365 % 30),
+        const conjunctioned = (amount, somewhat) => {
+          return ` and ${amount} fascinating ${somewhat} `;
+        };
+
+        let days = Math.floor(timeDiff / (1000 * 3600 * 24) % 365 % 30);
+        if(days === 0) {
+          days = '';
+        } else if(days === 1) {
+          days = conjunctioned(days, 'day');
+        } else {
+          days += conjunctioned(days, 'days');
         }
+
+        let months = Math.floor(timeDiff / (1000 * 3600 * 24) % 365 / 30);
+        if (months === 0) {
+          months = '';
+        } else if(months === 1) {
+          months = days === '' ? conjunctioned(months, 'month') : `, ${months} month `;
+        } else {
+          months = days === '' ? conjunctioned(months, 'months') : `, ${months} months `;
+        }
+
+        //  days
+        return `${Math.floor(timeDiff / (1000 * 3600 * 24) / 365)}  years${months}${days}`
       },
     },
   }

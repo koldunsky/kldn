@@ -29,7 +29,17 @@
   &:nth-child(odd)
     @media $bp-desktop
       cell(3,5)
+    @media $bp-widescreen
+      cell(1,5)
+      cell-offset(1,5)
+
   &:nth-child(even)
     @media $bp-desktop
       cell(2,5)
+    @media $bp-widescreen
+      cell(1,5)
+  &:first-child
+    @media $bp-widescreen
+      margin-left: 0 !important
+
 

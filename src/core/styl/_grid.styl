@@ -32,3 +32,9 @@ cell(i = 1, cols = columns, align = '', g = gutter)
     align-self flex-end
   if align is 'center'
     align-self center
+
+cell-offset(i = 1, cols = columns, g = gutter)
+  if g is not 0
+    margin-left: s('calc(100% * %s)', i / cols, rem-calc(g)) !important
+  else
+    margin-left: s('calc(100% * %s)', i / cols) !important
