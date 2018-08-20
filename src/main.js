@@ -27,6 +27,10 @@ new Vue({
   }
 });
 
+// document.addEventListener('DOMContentLoaded', () => {
+//   document.querySelector('html').classList.add('dom-loaded');
+// });
+
 window.addEventListener('load', () => {
   document.querySelector('html').classList.add('dom-loaded');
 });

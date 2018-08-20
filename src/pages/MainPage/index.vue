@@ -24,7 +24,7 @@
           >
             {{daysOfDev()}} of web development experience. 1 incredible hour of
             <Link href="https://www.youtube.com/watch?&v=1H-z8opCp_Q">
-            reporting</Link> at <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379"> RIT++</Link>. 1 year as a team leader at
+            reporting</Link> at <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379"> RIT++</Link>(yeah, that's me). 1 year as a team leader at
             <Link href="http://kodix.ru" target="_blank">
             Kodix</Link>.
           </ContentBlock>
@@ -53,7 +53,6 @@
         </template>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -90,6 +89,7 @@
               'JS(ES6+, Babel)',
               'CSS(SCSS, Stylus)',
               'HTML + HTML5(video API, localstorage, etc.)',
+              'BEM',
               'REST, XHR, AJAX',
               'React/Redux, Vue/Vuex',
               'Webpack, gulp',
@@ -126,7 +126,7 @@
         } else if(days === 1) {
           days = conjunctioned(days, 'day');
         } else {
-          days += conjunctioned(days, 'days');
+          days = conjunctioned(days, 'days');
         }
 
         let months = Math.floor(timeDiff / (1000 * 3600 * 24) % 365 / 30);

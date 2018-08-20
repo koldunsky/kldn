@@ -92,7 +92,7 @@
             this.$refs.videoEl.play();
           } catch(e) {
             console.error(e);
-            this.$refs.videoEl.controls = true;
+//            this.$refs.videoEl.controls = true;
           }
         };
         // Add current video

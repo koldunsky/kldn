@@ -41,38 +41,27 @@ img
   z-index: 1
 
 .kldn-footer
-  position: absolute
-  bottom: 0
-  width: 100%
   padding-left: $gutter
+  font-size: 1.2rem;
 
-@keyframes brick-hop {
-  0% {
-    bottom: 0;
-    transform: rotateZ(0deg);
-  }
-  15% {
-    bottom: 5rem
-  }
-  30% {
-    bottom: 0
-  }
-  45% {
-    bottom: 3rem
-    transform: rotateZ(180deg);
-  }
-  100% {
-    bottom: 0
-    transform: rotateZ(720deg);
-  }
-}
+.kldn-footer__ruller
+  display: block
+  opacity: 0
+  transition: $trans-ease-out-quad 1s
+  transition-property opacity width
+  will-change opacity
+  padding-bottom: .3rem
 
-.kldn-footer__brick
-  width: $gutter
-  height: $gutter
-  //background: $accent-color
-  margin: 0 auto
-  //animation: brick-hop infinite 1s
+.kldn-footer__ruller_visible
+  opacity: 1
+
+.kldn-footer__ruller-value
+  color: $accent-color
+
+.kldn-footer__ruller-bar
+  margin-top: .5rem
+  height: 2px
+  background: $accent-color
 
 *
   //outline 1px dotted red
