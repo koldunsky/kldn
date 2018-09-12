@@ -6,7 +6,7 @@ export default () => {
 
   function importAllVideos (r) {
     r.keys().forEach((key) => {
-      console.info(key.split('/'));
+      // console.info(key.split('/'));
       const name = key.split('/')[1]; // Waving
       const type = key.split('/')[2].split('.')[0]; // desktop.mp4 => desktop
       const path = r(key);

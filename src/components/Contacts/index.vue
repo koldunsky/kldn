@@ -32,8 +32,8 @@
             link: 'mailto:koldunsky@gmail.com'
           },
           {
-            text: 'facebook',
-            link: 'http://facebook.com'
+            text: 'facebook.com/koldunsky',
+            link: 'http://facebook.com/koldunsky'
           },
         ]
       }

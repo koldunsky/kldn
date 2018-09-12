@@ -28,6 +28,8 @@
 
 <script>
   import GhostGrid from './components/GhostGrid/index.vue'
+  import {addClass} from './utility/js/classesManipulation'
+  import _debounce from 'lodash/debounce'
 
   export default {
     name: 'App',
@@ -39,16 +41,34 @@
         overScroll: {
           current: 0,
           record: 0,
+          sum: 0,
         }
       }
     },
     mounted() {
-      window.addEventListener('scroll', (e) => {
+      window.addEventListener('scroll', () => {
+        const pxlsBelow = this.getPxlsBelow();
+        this.overScroll.current = pxlsBelow;
+        this.overScroll.record = Math.max(this.overScroll.record, pxlsBelow);
+        if(pxlsBelow > 100) {
+          this.setComicSans();
+        }
+      });
+      window.addEventListener('scroll', _debounce(() => {
+        this.overScroll.sum += this.getPxlsBelow();
+      }, 300));
+    },
+    methods: {
+      setComicSans() {
+        addClass(document.querySelector('html'), '_font_comic-sans')
+      },
+      getPxlsBelow() {
         const pageH = this.$el.clientHeight - document.body.clientHeight;
         const scroll = document.body.scrollTop;
-        this.overScroll.current = scroll - pageH;
-        this.overScroll.record = Math.max(this.overScroll.record, scroll - pageH);
-      })
+        console.info(pageH, scroll);
+        let pxlsBelow = scroll - pageH;
+        return  pxlsBelow < 0 ? 0 : pxlsBelow;
+      }
     }
   }
 </script>

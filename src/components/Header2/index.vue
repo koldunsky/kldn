@@ -3,6 +3,7 @@
     <div class="kldn-header__video">
       <img :src="video.current.start" alt="" class="kldn-header__video-poster">
       <video
+        v-if="true"
         class="kldn-header__video-bg"
         :class="{
         'kldn-header__video-bg_is-loaded': video.isLoaded
@@ -11,7 +12,9 @@
         :autoplay="true"
         :controls="false"
         :playsinline="true"
-        :muted="true"
+        :inline="true"
+        preload="auto"
+        muted
         ref="videoEl"
       >
       </video>
@@ -38,6 +41,8 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+
   import shuffleArray from '../../core/js/utility/shuffleArray'
   import slogans from './slogans'
 
@@ -46,7 +51,7 @@
   import Background from '../../components/Background/index'
   import AppearingText from '../../components/AppearingText/index'
   import requireMedia from './requireMedia'
-
+  import triggerEvent from '../../core/js/utility/triggerEvent';
 
   export default {
     components: {
@@ -74,35 +79,18 @@
       }
     },
     mounted() {
-      // Change slogan
-      setTimeout(() => {
-        setInterval(() => {
-          this.sloganStep = this.sloganStep === this.slogans.length - 1 ? 0 : this.sloganStep + 1;
-        }, 5000);
-      }, 0);
-
-      // Play video
-      const {videoEl} = this.$refs;
-
       window.onload = () => {
-        videoEl.oncanplay = () => {
-          this.video.isLoaded = true;
-          try{
-            this.$refs.videoEl.muted = true;
-            this.$refs.videoEl.play();
-          } catch(e) {
-            console.error(e);
-//            this.$refs.videoEl.controls = true;
-          }
-        };
-        // Add current video
-        const videoIndex = this.getVideoIndex();
-        console.info('this.video.collection: ', this.video.collection);
-        this.video.current = this.video.collection[videoIndex][layoutController.device];
-        console.info(this.video.current);
+        // Change slogan
         setTimeout(() => {
-          this.video.current.src = this.video.current.video;
-        }, 100);
+          setInterval(() => {
+            this.sloganStep = this.sloganStep === this.slogans.length - 1 ? 0 : this.sloganStep + 1;
+          }, 5000);
+        }, 2000);
+        // Set video
+        const videoIndex = this.getVideoIndex();
+        this.video.current = this.video.collection[videoIndex][layoutController.device];
+        // Start video
+        this.startVideo();
       };
     },
     computed: {
@@ -130,6 +118,21 @@
           window.localStorage.setItem('previousVideo', index);
         }
         return index;
+      },
+      startVideo() {
+        this.video.current.src = this.video.current.video;
+        Vue.nextTick(()=> {
+          console.info('nextTick');
+          // Play video
+          const {videoEl} = this.$refs;
+          //for mobile chrome
+          document.addEventListener('click', function () {
+            videoEl.play();
+          });
+          videoEl.oncanplay = () => {
+            this.video.isLoaded = true;
+          };
+        });
       }
     }
   }

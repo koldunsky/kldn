@@ -22,11 +22,9 @@
           <ContentBlock
             title="Not such interesting facts"
           >
-            {{daysOfDev()}} of web development experience. 1 incredible hour of
-            <Link href="https://www.youtube.com/watch?&v=1H-z8opCp_Q">
-            reporting</Link> at <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379"> RIT++</Link>(yeah, that's me). 1 year as a team leader at
-            <Link href="http://kodix.ru" target="_blank">
-            Kodix</Link>.
+            {{daysOfDev()}} of web development experience. 1&nbsp;incredible hour
+            of&nbsp;<Link href="https://www.youtube.com/watch?&v=1H-z8opCp_Q">
+            reporting</Link> at <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379">RIT++</Link> (yeah, that's me). 1 year as a team leader at&nbsp;<Link href="http://kodix.ru" target="_blank">Kodix</Link>.
           </ContentBlock>
         </div>
         <template
@@ -86,9 +84,9 @@
           {
             title: 'Technical Skills',
             text: [
-              'JS(ES6+, Babel)',
-              'CSS(SCSS, Stylus)',
-              'HTML + HTML5(video API, localstorage, etc.)',
+              'JS (ES6+, Babel)',
+              'CSS (SCSS, Stylus)',
+              'HTML + HTML5 (video API, localstorage, etc.)',
               'BEM',
               'REST, XHR, AJAX',
               'React/Redux, Vue/Vuex',
@@ -117,7 +115,7 @@
 //        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) % 365 / 30)); // months
 //        console.info(Math.floor(timeDiff / (1000 * 3600 * 24) % 365 % 30)); // days
         const conjunctioned = (amount, somewhat) => {
-          return ` and ${amount} fascinating ${somewhat} `;
+          return ` and ${amount}\xa0fascinating ${somewhat} `;
         };
 
         let days = Math.floor(timeDiff / (1000 * 3600 * 24) % 365 % 30);
@@ -133,9 +131,9 @@
         if (months === 0) {
           months = '';
         } else if(months === 1) {
-          months = days === '' ? conjunctioned(months, 'month') : `, ${months} month `;
+          months = days === '' ? conjunctioned(months, 'month') : `, ${months}\xa0month `;
         } else {
-          months = days === '' ? conjunctioned(months, 'months') : `, ${months} months `;
+          months = days === '' ? conjunctioned(months, 'months') : `, ${months}\xa0months `;
         }
 
         //  days
