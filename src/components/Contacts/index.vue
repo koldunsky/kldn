@@ -24,8 +24,8 @@
       return {
         contacts: [
           {
-            text: 't.me/rusty',
-            link: 'http://t.me/rusty'
+            text: 't.me/koldunsky',
+            link: 'http://t.me/koldunsky'
           },
           {
             text: 'koldunsky@gmail.com',
