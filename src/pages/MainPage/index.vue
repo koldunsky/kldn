@@ -11,6 +11,7 @@
             title="Interesting facts about me"
           >
             I am proud owner of 8000 stickers.
+            I do <Link rel="nofollow noopener" href="https://www.instagram.com/kasha.lab">design and modify</Link> wristwatches for fun.
             I regularly use all four of my cameras and one astronomic binocular.
             I once broke both arms in one epic bike fall.
             Master of artistic whistling. My tent weights less that 800 grams.
@@ -24,7 +25,7 @@
           >
             {{daysOfDev()}} of web development experience. 1&nbsp;incredible hour
             of&nbsp;<Link href="https://www.youtube.com/watch?&v=1H-z8opCp_Q">
-            reporting</Link> at <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379">RIT++</Link> (yeah, that's me). 1 year as a team leader at&nbsp;<Link href="http://kodix.ru" target="_blank">Kodix</Link>.
+            presenting</Link> at <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379">RIT++</Link> (yeah, that's me).
           </ContentBlock>
         </div>
         <template
@@ -73,37 +74,34 @@
           {
             title: 'Areas of Expertise',
             text: [
-              'Web-design development',
-              'UI/UX development and optimisation',
-              'UI brand kits',
-              'Reusable components',
               'Mobile first responsive/adaptive layout',
-              'Website load speed improving',
+              'Webpage performance optimisation',
+              'Code quality',
+              'Product quality',
+              'Unit-,Integration-,E2E testing',
+              'UI libraries architecture',
+              'A11y',
+              'SEO',
+              'Constantly learning new stuff and improving processes',
             ]
           },
           {
             title: 'Technical Skills',
             text: [
-              'JS (ES6+, Babel)',
-              'CSS (SCSS, Stylus)',
+              'Typrescript/Javascript',
+              'GraphQL, REST, XHR, AJAX',
+              'React, Vue, Flutter',
+              'All kind of CSS (scc-in-js, Taiwind, pre/post processors, etc.)',
               'HTML + HTML5 (video API, localstorage, etc.)',
-              'BEM',
-              'REST, XHR, AJAX',
-              'React/Redux, Vue/Vuex',
-              'Webpack, gulp',
-              'Pug, Twig, Moustache, Hanlebars',
+              'VR/AR (A-Frame)',
               'SVG, Canvas',
+              'CI/CD: Docker, Kubernetes, Jenkins, Gitlab CI, etc.',
             ]
           }
         ]
       }
     },
     methods: {
-      getAge: function () { // birthday is a date
-        const ageDifMs = Date.now() - new Date(1990, 4, 13).getTime();
-        const ageDate = new Date(ageDifMs); // miliseconds from epoch
-        return Math.abs(ageDate.getUTCFullYear() - 1970);
-      },
       daysOfDev: function () {
         const date1 = new Date(2013, 2, 21);
         const date2 = new Date();
