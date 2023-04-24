@@ -82,6 +82,7 @@
               'UI libraries architecture',
               'A11y',
               'SEO',
+              'Progressive Web Apps (PWA)',
               'Constantly learning new stuff and improving processes',
             ]
           },

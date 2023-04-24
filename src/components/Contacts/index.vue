@@ -24,16 +24,16 @@
       return {
         contacts: [
           {
-            text: 't.me/koldunsky',
-            link: 'http://t.me/koldunsky'
-          },
-          {
             text: 'koldunsky@gmail.com',
             link: 'mailto:koldunsky@gmail.com'
           },
           {
-            text: 'facebook.com/koldunsky',
-            link: 'http://facebook.com/koldunsky'
+            text: 'linkedin',
+            link: 'https://www.linkedin.com/in/ruslan-koldunsky-3799b9169/'
+          },
+          {
+            text: 'xing',
+            link: 'https://www.xing.com/profile/ruslan_koldunsky/'
           },
         ]
       }
