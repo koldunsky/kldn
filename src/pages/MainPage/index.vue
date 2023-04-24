@@ -10,11 +10,13 @@
           <ContentBlock
             title="Interesting facts about me"
           >
-            I am proud owner of 8000 stickers.
-            I do <Link rel="nofollow noopener" href="https://www.instagram.com/kasha.lab">design and modify</Link> wristwatches for fun.
-            I regularly use all four of my cameras and one astronomic binocular.
-            I once broke both arms in one epic bike fall.
-            Master of artistic whistling. My tent weights less that 800 grams.
+            <ul>
+              <li> I am proud owner of 8000 stickers.</li>
+              <li> I do <Link rel="nofollow noopener" href="https://www.instagram.com/kasha.lab">design and modify</Link> wristwatches for fun. </li>
+              <li>I regularly use all four of my cameras and one astronomic binocular. </li>
+              <li>I once broke both arms in one epic bike fall.</li>
+              <li>Master of artistic whistling. My tent weights less that 800 grams.</li>
+            </ul>
           </ContentBlock>
         </div>
         <div
@@ -23,9 +25,18 @@
           <ContentBlock
             title="Not such interesting facts"
           >
-            {{daysOfDev()}} of web development experience. 1&nbsp;incredible hour
-            of&nbsp;<Link href="https://www.youtube.com/watch?&v=1H-z8opCp_Q">
-            presenting</Link> at <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379">RIT++</Link> (yeah, that's me).
+            <ul>
+              <li>
+                {{daysOfDev()}} of web development experience.
+              </li>
+              <li>
+                1&nbsp;incredible hour of&nbsp;<Link href="https://www.youtube.com/watch?&v=1H-z8opCp_Q">
+                presenting</Link> at <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379">RIT++</Link> (yeah, that's me).
+              </li>
+              <li>
+                1&nbsp;PWA (Progressive Web App) designed and built from scratch with UX and code quality in mind — <Link href="https://kolenki.app/">kolenki.app</Link> [&nbsp;<Link href="https://github.com/koldunsky/kolenki">github repo</Link>&nbsp;]
+              </li>
+            </ul>
           </ContentBlock>
         </div>
         <template
@@ -78,7 +89,7 @@
               'Webpage performance optimisation',
               'Code quality',
               'Product quality',
-              'Unit-,Integration-,E2E testing',
+              'Unit-, Integration-, E2E testing',
               'UI libraries architecture',
               'A11y',
               'SEO',
@@ -89,7 +100,7 @@
           {
             title: 'Technical Skills',
             text: [
-              'Typrescript/Javascript',
+              'Typescript/Javascript',
               'GraphQL, REST, XHR, AJAX',
               'React, Vue, Flutter',
               'All kind of CSS (scc-in-js, Taiwind, pre/post processors, etc.)',

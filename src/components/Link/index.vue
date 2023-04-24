@@ -1,4 +1,4 @@
-<template><a class="kldn-link" :href="href" :target="target"><slot></slot></a></template>
+<template><a class="kldn-link" :href="href" target="_blank" rel="noopener noreferrer"><slot></slot></a></template>
 
 <script>
   export default {
@@ -7,10 +7,6 @@
         type: String,
         required: true,
       },
-      target: {
-        type: String,
-        default: '_self'
-      }
     }
   }
 </script>
