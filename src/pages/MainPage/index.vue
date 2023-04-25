@@ -15,7 +15,8 @@
               <li> I do <Link rel="nofollow noopener" href="https://www.instagram.com/kasha.lab">design and modify</Link> wristwatches for fun. </li>
               <li>I regularly use all four of my cameras and one astronomic binocular. </li>
               <li>I once broke both arms in one epic bike fall.</li>
-              <li>Master of artistic whistling. My tent weights less that 800 grams.</li>
+              <li>Master of artistic whistling.</li>
+              <li>My tent weights less that 800 grams.</li>
             </ul>
           </ContentBlock>
         </div>
