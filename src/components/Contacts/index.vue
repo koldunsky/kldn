@@ -29,11 +29,7 @@
           },
           {
             text: 'LinkedIn',
-            link: 'https://www.linkedin.com/in/ruslan-koldunsky-3799b9169/'
-          },
-          {
-            text: 'XING',
-            link: 'https://www.xing.com/profile/ruslan_koldunsky/'
+            link: 'https://www.linkedin.com/in/kirill-koldunskii-3799b9169/'
           },
         ]
       }

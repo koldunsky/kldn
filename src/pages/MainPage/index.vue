@@ -11,9 +11,9 @@
             title="Interesting facts about me"
           >
             <ul>
-              <li> I am proud owner of 8000 stickers.</li>
-              <li> I do <Link rel="nofollow noopener" href="https://www.instagram.com/kasha.lab">design and modify</Link> wristwatches for fun. </li>
-              <li>I regularly use all four of my cameras and one astronomic binocular. </li>
+              <li>I am proud owner of 8000 stickers.</li>
+              <li>I do <Link rel="nofollow noopener" href="https://www.instagram.com/kasha.lab">design and modify</Link> wristwatches for fun.</li>
+              <li>I regularly use all four of my film cameras.</li>
               <li>I once broke both arms in one epic bike fall.</li>
               <li>Master of artistic whistling.</li>
               <li>My tent weights less that 800 grams.</li>
@@ -28,7 +28,7 @@
           >
             <ul>
               <li>
-                {{daysOfDev()}} of web development experience.
+                {{daysOfDev()}} of software development experience.
               </li>
               <li>
                 1&nbsp;incredible hour of&nbsp;<Link href="https://www.youtube.com/watch?&v=1H-z8opCp_Q">
@@ -86,15 +86,15 @@
           {
             title: 'Areas of Expertise',
             text: [
-              'Mobile first responsive/adaptive layout',
+              'Typescript/Javascript development',
+              'Keen eye on UI/UX details',
+              'Scalable solutions architecture',
               'Webpage performance optimisation',
               'Code quality',
-              'Product quality',
               'Unit-, Integration-, E2E testing',
               'UI libraries architecture',
               'A11y',
               'SEO',
-              'Progressive Web Apps (PWA)',
               'Constantly learning new stuff and improving processes',
             ]
           },
@@ -102,13 +102,13 @@
             title: 'Technical Skills',
             text: [
               'Typescript/Javascript',
-              'GraphQL, REST, XHR, AJAX',
-              'React, Vue, Flutter',
-              'All kind of CSS (scc-in-js, Taiwind, pre/post processors, etc.)',
-              'HTML + HTML5 (video API, localstorage, etc.)',
+              'React, Next.js, Vue.js, Flutter',
+              'Node.js, Express, Strapi',
+              'CI/CD: Gitlab CI, Docker, Kubernetes, Jenkins, etc.',
+              'GraphQL, REST, Websockets',
+              'All kind of styling (Tailwind, Styled components, plain CSS, SCSS etc.)',
               'VR/AR (A-Frame)',
               'SVG, Canvas',
-              'CI/CD: Docker, Kubernetes, Jenkins, Gitlab CI, etc.',
             ]
           }
         ]

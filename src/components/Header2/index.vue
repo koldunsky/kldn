@@ -34,8 +34,8 @@
       </li>
     </ul>
     <div class="kldn-header__name">
-      <div class="kldn-header__name-part">Ruslan</div>
-      <div class="kldn-header__name-part">Koldunsky</div>
+      <div class="kldn-header__name-part">Kirill (Ruslan)</div>
+      <div class="kldn-header__name-part">Koldunskii</div>
     </div>
   </div>
 </template>
@@ -73,7 +73,7 @@
           ]
         },
         slogans: [
-          ['frontend developer', '(web)design'],
+          ['software developer', 'elegant solutions'],
           ...shuffleArray(slogans)
         ]
       }

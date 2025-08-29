@@ -4,8 +4,8 @@
       <Background/>
     </div>
     <div class="kldn-header__name">
-      <span class="kldn-header__name-part">ruslan</span>
-      <span class="kldn-header__name-part">koldunsky</span>
+      <span class="kldn-header__name-part">Kirill (Ruslan)</span>
+      <span class="kldn-header__name-part">Koldunskii</span>
     </div>
     <div class="kldn-header__description">
       Experienced <AppearingText text="frontend developer"></AppearingText> passionate about <AppearingText text="(web)design"></AppearingText>
