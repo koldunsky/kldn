@@ -34,7 +34,7 @@
       </li>
     </ul>
     <div class="kldn-header__name">
-      <div class="kldn-header__name-part">Kirill (Ruslan)</div>
+      <div class="kldn-header__name-part">Kirill</div>
       <div class="kldn-header__name-part">Koldunskii</div>
     </div>
   </div>

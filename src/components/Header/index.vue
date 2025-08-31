@@ -4,7 +4,7 @@
       <Background/>
     </div>
     <div class="kldn-header__name">
-      <span class="kldn-header__name-part">Kirill (Ruslan)</span>
+      <span class="kldn-header__name-part">Kirill</span>
       <span class="kldn-header__name-part">Koldunskii</span>
     </div>
     <div class="kldn-header__description">
