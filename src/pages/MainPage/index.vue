@@ -35,7 +35,7 @@
                 presenting</Link> at <Link href="http://frontendconf.ru/moscow-rit/2018/abstracts/3379">RIT++</Link> (yeah, that's me).
               </li>
               <li>
-                1&nbsp;PWA (Progressive Web App) designed and built from scratch with UX and code quality in mind — <Link href="https://kolenki.app/">kolenki.app</Link> [<Link href="https://github.com/koldunsky/kolenki">github repo</Link>]
+                1&nbsp;PWA (Progressive Web App) designed and built from scratch with UX and code quality in mind — <Link href="https://kolenki.netlify.app/">kolenki.app</Link> [<Link href="https://github.com/koldunsky/kolenki">github repo</Link>]
               </li>
             </ul>
           </ContentBlock>
