@@ -29,7 +29,7 @@
           },
           {
             text: 'LinkedIn',
-            link: 'https://www.linkedin.com/in/kirill-koldunskii-3799b9169/'
+            link: 'https://www.linkedin.com/in/koldunskii/'
           },
         ]
       }
